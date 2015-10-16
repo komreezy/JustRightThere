@@ -10,7 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, CLLocationManagerDelegate {
+class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate,
+    UISearchDisplayDelegate,
+    CLLocationManagerDelegate {
     
     var mapView: MKMapView
     var searchBar: UISearchBar
@@ -45,15 +47,12 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
         
         if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
             CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
-                
-                if (locManager.location != nil) {
-                    currentLoc = locManager.location! //if we are authorized then set the current location to our variable
-                    print("")
-                } else {
-                    print("Can't find user location")
-                }
-                
-                
+            if (locManager.location != nil) {
+                currentLoc = locManager.location! //if we are authorized then set the current location to our variable
+                print("")
+            } else {
+                print("Can't find user location")
+            }
         }
         
         
