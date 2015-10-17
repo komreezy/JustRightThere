@@ -58,8 +58,8 @@ class ListDetailViewController: UICollectionViewController {
     class func provideCollectionViewLayout() -> UICollectionViewLayout {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let flowLayout = CSStickyHeaderFlowLayout()
-        flowLayout.parallaxHeaderMinimumReferenceSize = CGSizeMake(screenWidth, 50)
-        flowLayout.parallaxHeaderReferenceSize = CGSizeMake(screenWidth, 200)
+        flowLayout.parallaxHeaderMinimumReferenceSize = CGSizeMake(screenWidth, 200)
+        flowLayout.parallaxHeaderReferenceSize = CGSizeMake(screenWidth, 270)
         flowLayout.parallaxHeaderAlwaysOnTop = false
         flowLayout.disableStickyHeaders = false
         flowLayout.minimumInteritemSpacing = 1.0
