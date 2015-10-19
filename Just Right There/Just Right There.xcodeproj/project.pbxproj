@@ -16,6 +16,7 @@
 		6948C9761B9997A60097E68B /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6948C9751B9997A60097E68B /* CustomAnnotation.swift */; };
 		6948C9781B9997C60097E68B /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6948C9771B9997C60097E68B /* Manager.swift */; };
 		696BCB541BCDB86A001C8653 /* UIColor+HEXString.m in Sources */ = {isa = PBXBuildFile; fileRef = 696BCB531BCDB86A001C8653 /* UIColor+HEXString.m */; settings = {ASSET_TAGS = (); }; };
+		697D34361BD31E450063CF90 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697D34351BD31E450063CF90 /* AddItemViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		697D6ACA1B98C2FF00056780 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 697D6ABD1B98C2FF00056780 /* .gitignore */; };
 		697D6ACB1B98C2FF00056780 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 697D6ABE1B98C2FF00056780 /* LICENSE */; };
 		697D6ACC1B98C2FF00056780 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 697D6ABF1B98C2FF00056780 /* README.md */; };
@@ -73,6 +74,7 @@
 		6948C9771B9997C60097E68B /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		696BCB521BCDB86A001C8653 /* UIColor+HEXString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEXString.h"; sourceTree = "<group>"; };
 		696BCB531BCDB86A001C8653 /* UIColor+HEXString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEXString.m"; sourceTree = "<group>"; };
+		697D34351BD31E450063CF90 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		697D6ABD1B98C2FF00056780 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		697D6ABE1B98C2FF00056780 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		697D6ABF1B98C2FF00056780 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				6948C9711B998AF20097E68B /* ListsCollectionViewController.swift */,
 				6948C9731B9997530097E68B /* MapSearchViewController.swift */,
 				69271CE61BA14D0A0074CBF6 /* ListDetailViewController.swift */,
+				697D34351BD31E450063CF90 /* AddItemViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				6930B4DF1BD012D8000324EA /* ListDetailHeaderView.swift in Sources */,
 				6948C9721B998AF20097E68B /* ListsCollectionViewController.swift in Sources */,
 				6930B4E41BD01454000324EA /* ListDetailCollectionViewCell.swift in Sources */,
+				697D34361BD31E450063CF90 /* AddItemViewController.swift in Sources */,
 				6948C9761B9997A60097E68B /* CustomAnnotation.swift in Sources */,
 				69271CE71BA14D0A0074CBF6 /* ListDetailViewController.swift in Sources */,
 			);

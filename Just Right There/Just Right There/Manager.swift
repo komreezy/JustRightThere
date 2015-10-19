@@ -21,7 +21,8 @@ List - a title that goes with a text field and a location
 struct list {
     var title: String = "" //name of the place is the same as the name of the list because there is one list per place
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D() //coordinates of the place have to come from the map
-    var items: String = ""
+    var items: [String] = []
+    var range: CGFloat
 }
 
 var manager: Manager = Manager()
@@ -29,24 +30,23 @@ var manager: Manager = Manager()
 class Manager: NSObject, ListNotificationSetDelegate {
     
     //holds all of the location lists
-    var lists: [list] = [list(title:"Nike Store", location: CLLocationCoordinate2D(latitude: 80.0, longitude: 80.0), items: "Shoes")]
+    var lists: [list] = [list(title:"Nike Store", location: CLLocationCoordinate2D(latitude: 80.0, longitude: 80.0), items: ["Shoes", "Shirt", "Golf Balls", "Jordans", "Ankle Socks", "Hat", "Headband", "Tennis Ball"], range: 0.0)]
     var notifications: [UILocalNotification] = []
     var currentIndex = 0
     
     //make blank list with title and location passed in
     func addList(titleParam: String, coordinate: CLLocationCoordinate2D){
-        lists.append(list(title: titleParam, location: coordinate, items: ""))
+        lists.append(list(title: titleParam, location: coordinate, items: [], range: 0.0))
     }
     
     func createLocationBasedNotification(name: String, radius: CGFloat) {
+        let userInfo: NSDictionary = NSDictionary(object: "\(name)\(radius)", forKey: "name")
+        let uidToDelete = "\(name)"
         let notification = UILocalNotification()
         notification.alertBody = "Don't forget about your list for \(name)!"
         notification.regionTriggersOnce = false
-        let userInfo: NSDictionary = NSDictionary(object: "\(name)\(radius)", forKey: "name")
         notification.userInfo = userInfo as [NSObject : AnyObject]
         notification.region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 37.33182, longitude: -122.03118), radius: 100.0, identifier: "\(name)\(radius)")
-    
-        let uidToDelete = "\(name)"
         
         for var i = 0; i < notifications.count; i++ {
             let item = notifications[i]
@@ -63,6 +63,7 @@ class Manager: NSObject, ListNotificationSetDelegate {
         }
         
         notifications.append(notification)
+        lists[currentIndex].range = radius
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         

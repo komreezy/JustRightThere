@@ -39,6 +39,7 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
         rangeSlider.minimumValue = 0
         rangeSlider.continuous = true
         rangeSlider.layer.cornerRadius = 10
+        rangeSlider.value = Float(manager.lists[manager.currentIndex].range)
         
         firstLabel = UILabel()
         firstLabel.translatesAutoresizingMaskIntoConstraints = false

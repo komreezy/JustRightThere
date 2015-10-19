@@ -210,19 +210,14 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
                        let phone = item.phoneNumber {
                         print("Name = \(name)")
                         print("Phone = \(phone)")
+                        let subtitle = "Lists: 0"
+                        let itemLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude)
+                        let ann: CustomAnnotation = CustomAnnotation(coordinate: itemLocation, title: name, subtitle: subtitle)
+                        self.mapView.addAnnotation(ann)
                     }
-                    
-                    let title = "\(item.name)"
-                    let subtitle = "Lists: 0"
-                    let itemLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude)
-                    let ann: CustomAnnotation = CustomAnnotation(coordinate: itemLocation, title: title, subtitle: subtitle)
-                    self.mapView.addAnnotation(ann)
-                    
                 }
             }
-            
         })
-        
         print("")
     }
     

@@ -11,24 +11,26 @@ import UIKit
 class ListDetailViewController: UICollectionViewController {
 
     // variables passed in from the last view controller
-    var currentText: String
+    var currentItems: [String]
     var currentTitle: String
     var currentIndex: Int
+    var addButton: UIBarButtonItem?
     
     var delegate: ListNotificationSetDelegate?
     var headerDelegate: ListDetailHeaderDelegate?
     var headerView: ListDetailHeaderView?
     
-    var currentItems = ["Shoes", "Shirt", "Golf Balls", "Jordans", "Ankle Socks", "Hat", "Headband", "Tennis Ball"]
-    
     init() {
         currentIndex = manager.currentIndex
         
-        currentText = manager.lists[currentIndex].items
+        currentItems = manager.lists[currentIndex].items
         
         currentTitle = manager.lists[currentIndex].title
         
         super.init(collectionViewLayout: ListDetailViewController.provideCollectionViewLayout())
+        
+        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItem")
+        navigationItem.rightBarButtonItem = addButton
         
         view.backgroundColor = UIColor.whiteColor()
         
@@ -55,12 +57,20 @@ class ListDetailViewController: UICollectionViewController {
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if let collectionView = collectionView {
+            collectionView.reloadData()
+        } else {
+            
+        }
+    }
+    
     class func provideCollectionViewLayout() -> UICollectionViewLayout {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let flowLayout = CSStickyHeaderFlowLayout()
         flowLayout.parallaxHeaderMinimumReferenceSize = CGSizeMake(screenWidth, 200)
         flowLayout.parallaxHeaderReferenceSize = CGSizeMake(screenWidth, 270)
-        flowLayout.parallaxHeaderAlwaysOnTop = false
+        flowLayout.parallaxHeaderAlwaysOnTop = true
         flowLayout.disableStickyHeaders = false
         flowLayout.minimumInteritemSpacing = 1.0
         flowLayout.minimumLineSpacing = 1.0
@@ -109,6 +119,10 @@ class ListDetailViewController: UICollectionViewController {
     //if the user clicks the done button then save their list that they wrote
     func doneButtonClicked(sender: UIButton){
         // manager.lists[currentIndex].items = textView.text
+    }
+    
+    func addItem() {
+        presentViewController(AddItemViewController(), animated: true, completion: nil)
     }
 }
 
