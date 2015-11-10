@@ -11,6 +11,7 @@ import UIKit
 class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
     var titleLabel: UILabel // will be set by the current title variable
     var rangeSlider: UISlider // range of notification
+    var borderLineView: UIView
     
     //var zeroLabel: UILabel // 10%
     var firstLabel: UILabel // 10%
@@ -31,6 +32,9 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = "Nike Store"
+        titleLabel.font = UIFont.systemFontOfSize(28.0)
+        titleLabel.textColor = FlatBlackColor
+        titleLabel.textAlignment = .Center
         titleLabel.backgroundColor = UIColor.clearColor()
         
         rangeSlider = UISlider()
@@ -39,6 +43,7 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
         rangeSlider.minimumValue = 0
         rangeSlider.continuous = true
         rangeSlider.layer.cornerRadius = 10
+        rangeSlider.tintColor = UIColor(red: 69.0/255.0, green: 74.0/255.0, blue: 79.0/255.0, alpha: 1.0)
         rangeSlider.value = Float(manager.lists[manager.currentIndex].range)
         
         firstLabel = UILabel()
@@ -101,6 +106,10 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
         tenthLabel.text = "5"
         tenthLabel.font = UIFont.systemFontOfSize(10.0)
         
+        borderLineView = UIView()
+        borderLineView.translatesAutoresizingMaskIntoConstraints = false
+        borderLineView.backgroundColor = UIColor(fromHexString: "#55B5B5")
+        
         super.init(frame: frame)
         
         backgroundColor = UIColor.whiteColor()
@@ -119,6 +128,7 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
         addSubview(eighthLabel)
         addSubview(ninthLabel)
         addSubview(tenthLabel)
+        addSubview(borderLineView)
         
         setupLayout()
     }
@@ -130,7 +140,7 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
     // UISlider
     func sliderValueChanged() {
         UIView.animateWithDuration(0.3, animations: {
-            self.rangeSlider.backgroundColor = UIColor(fromHexString: "#e74c3c")
+            self.rangeSlider.backgroundColor = FlatRedColor
         })
         
         var value: CGFloat = 0.0
@@ -208,7 +218,12 @@ class ListDetailHeaderView: UICollectionReusableView, ListDetailHeaderDelegate {
             tenthLabel.al_left == ninthLabel.al_right,
             tenthLabel.al_top == rangeSlider.al_bottom,
             tenthLabel.al_height == 30,
-            tenthLabel.al_width == rangeSlider.al_width / 10
+            tenthLabel.al_width == rangeSlider.al_width / 10,
+            
+            borderLineView.al_bottom == al_bottom,
+            borderLineView.al_left == al_left,
+            borderLineView.al_right == al_right,
+            borderLineView.al_height == 3
         ])
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class ListsCollectionViewCell: UICollectionViewCell {
     var nameLabel: UILabel
     var itemCountLabel: UILabel
+    var borderView: UIView
     
     override init(frame: CGRect) {
         nameLabel = UILabel()
@@ -21,10 +22,15 @@ class ListsCollectionViewCell: UICollectionViewCell {
         itemCountLabel.translatesAutoresizingMaskIntoConstraints = false
         itemCountLabel.text = "3 Items"
         
+        borderView = UIView()
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.backgroundColor = UIColor(fromHexString: "#CCCCCC")
+        
         super.init(frame: frame)
         
         addSubview(nameLabel)
         addSubview(itemCountLabel)
+        addSubview(borderView)
         
         setupLayout()
     }
@@ -39,7 +45,12 @@ class ListsCollectionViewCell: UICollectionViewCell {
             nameLabel.al_left == al_left + 25,
             
             itemCountLabel.al_centerY == al_centerY,
-            itemCountLabel.al_right == al_right - 25
+            itemCountLabel.al_right == al_right - 25,
+            
+            borderView.al_left == al_left,
+            borderView.al_right == al_right,
+            borderView.al_bottom == al_bottom,
+            borderView.al_height == 0.5
         ])
     }
 }

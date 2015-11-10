@@ -10,16 +10,21 @@ import UIKit
 
 class ListDetailCollectionViewCell: UICollectionViewCell {
     var itemNameLabel: UILabel
+    var borderView: UIView
     
     override init(frame: CGRect) {
         itemNameLabel = UILabel()
         itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        itemNameLabel.textColor = FlatBlackColor
+        
+        borderView = UIView()
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.backgroundColor = UIColor(fromHexString: "#CCCCCC")
         
         super.init(frame: frame)
         
-        backgroundColor = UIColor.grayColor()
-        
         addSubview(itemNameLabel)
+        addSubview(borderView)
         
         setupLayout()
     }
@@ -31,7 +36,12 @@ class ListDetailCollectionViewCell: UICollectionViewCell {
     func setupLayout() {
         addConstraints([
             itemNameLabel.al_centerY == al_centerY,
-            itemNameLabel.al_left == al_left
+            itemNameLabel.al_left == al_left + 15,
+            
+            borderView.al_left == al_left,
+            borderView.al_right == al_right,
+            borderView.al_bottom == al_bottom,
+            borderView.al_height == 0.5
         ])
     }
 }

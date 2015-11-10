@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = self.window {
             mainController = MainMenuViewController()
             navigationController = UINavigationController(rootViewController: mainController)
+            navigationController?.navigationBar.barTintColor = FlatGreenColor
+            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
             window.rootViewController = navigationController
             window.makeKeyAndVisible()
         }

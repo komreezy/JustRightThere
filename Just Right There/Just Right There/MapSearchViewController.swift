@@ -21,6 +21,8 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
     var myLocations: [CLLocation] = []
     var listsToLoad: [String] = []
     
+    var updatedLocation: Bool = false
+    
     init() {
         mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -126,11 +128,16 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
                 print("Error with data")
             }
             
-            let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.04, 0.04)
+            let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
             let pointLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.locManager.location!.coordinate.latitude, self.locManager.location!.coordinate.longitude)
             let region:MKCoordinateRegion = MKCoordinateRegionMake(pointLocation, theSpan) //span of the map
-            self.mapView.setRegion(region, animated: true) //set the view of the map display
             
+            if self.updatedLocation == false {
+                for var i = 0; i < 5; i++ {
+                    self.mapView.setRegion(region, animated: true) //set the view of the map display
+                }
+                self.updatedLocation = true
+            }
         })
         
         let userLocation:CLLocation = locations[0] 

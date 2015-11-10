@@ -40,6 +40,10 @@ class ListsCollectionViewController: UICollectionViewController {
             collectionView.registerClass(ListsCollectionViewCell.self, forCellWithReuseIdentifier: listCellReuseIdentifier)
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        collectionView?.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,7 +64,7 @@ class ListsCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(listCellReuseIdentifier, forIndexPath: indexPath) as! ListsCollectionViewCell
         
         cell.nameLabel.text = manager.lists[indexPath.row].title
-        cell.itemCountLabel.text = String(0)
+        cell.itemCountLabel.text = String("\(manager.lists[indexPath.row].items.count) Items")
         
         return cell
     }

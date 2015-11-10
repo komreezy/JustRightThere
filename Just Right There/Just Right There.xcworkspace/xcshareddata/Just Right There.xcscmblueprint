@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3E52007F09750D16ACFE218222CA41A182FE1CE3" : 0,
+    "744853B56061B048537F16A4F7DD9E859B864C22" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "99D7CA26-EB06-46BD-9DC2-63178BA375E8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3E52007F09750D16ACFE218222CA41A182FE1CE3" : "..\/..\/often-ios",
+    "744853B56061B048537F16A4F7DD9E859B864C22" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Just Right There",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Just Right There.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tryoften\/often-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3E52007F09750D16ACFE218222CA41A182FE1CE3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/komreezy\/JustRightThere.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "744853B56061B048537F16A4F7DD9E859B864C22"
+    }
+  ]
+}

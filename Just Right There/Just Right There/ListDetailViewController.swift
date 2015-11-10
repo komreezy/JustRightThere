@@ -58,10 +58,10 @@ class ListDetailViewController: UICollectionViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        currentItems = manager.lists[currentIndex].items
+        
         if let collectionView = collectionView {
-            collectionView.reloadData()
-        } else {
-            
+            collectionView.reloadSections(NSIndexSet(index: 0))
         }
     }
     
@@ -72,8 +72,8 @@ class ListDetailViewController: UICollectionViewController {
         flowLayout.parallaxHeaderReferenceSize = CGSizeMake(screenWidth, 270)
         flowLayout.parallaxHeaderAlwaysOnTop = true
         flowLayout.disableStickyHeaders = false
-        flowLayout.minimumInteritemSpacing = 1.0
-        flowLayout.minimumLineSpacing = 1.0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
         flowLayout.sectionInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         flowLayout.itemSize = CGSizeMake(screenWidth, 80)
         return flowLayout
