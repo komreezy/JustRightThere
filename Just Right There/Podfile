@@ -2,7 +2,8 @@
 # platform :ios, '6.0'
 
 target 'Just Right There' do
-    pod "CSStickyHeaderFlowLayout"
+    pod 'CSStickyHeaderFlowLayout'
+    pod 'Firebase', '>= 2.4.2'
 end
 
 target 'Just Right ThereTests' do

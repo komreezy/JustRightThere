@@ -9,28 +9,30 @@
 import UIKit
 
 class MainMenuViewController: UIViewController {
-    var addToShoppingListButton: UIButton
-    var addLocationButton: UIButton
-    var specialsButton: UIButton
+    var addToShoppingListButton: SpringButton
+    var addLocationButton: SpringButton
+    var specialsButton: SpringButton
     
     var addToShoppingLabel: UILabel
     var addLocationLabel: UILabel
     var specialsLabel: UILabel
     
+    var addToShoppingListAnimationConstraint: NSLayoutConstraint?
+    
     init() {
-        addToShoppingListButton = UIButton()
+        addToShoppingListButton = SpringButton()
         addToShoppingListButton.translatesAutoresizingMaskIntoConstraints = false
         addToShoppingListButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         addToShoppingListButton.layer.cornerRadius = 85
         addToShoppingListButton.backgroundColor = FlatGreenColor
         
-        addLocationButton = UIButton()
+        addLocationButton = SpringButton()
         addLocationButton.translatesAutoresizingMaskIntoConstraints = false
         addLocationButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         addLocationButton.layer.cornerRadius = 85
         addLocationButton.backgroundColor = FlatBlueColor
         
-        specialsButton = UIButton()
+        specialsButton = SpringButton()
         specialsButton.translatesAutoresizingMaskIntoConstraints = false
         specialsButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         specialsButton.layer.cornerRadius = 85
@@ -85,6 +87,25 @@ class MainMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addToShoppingListButton.duration = 1.2
+        addToShoppingListButton.animation = "pop"
+        addToShoppingListButton.curve = "easeInOut"
+        addToShoppingListButton.animate()
+        
+        delay(0.3, closure: {
+            self.addLocationButton.duration = 1.2
+            self.addLocationButton.animation = "pop"
+            self.addLocationButton.curve = "easeInOut"
+            self.addLocationButton.animate()
+        })
+        
+        delay(0.6, closure: {
+            self.specialsButton.duration = 1.2
+            self.specialsButton.animation = "pop"
+            self.specialsButton.curve = "easeInOut"
+            self.specialsButton.animate()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,7 +114,7 @@ class MainMenuViewController: UIViewController {
     
     func addToShoppingListTapped() {
         if let navigationController = navigationController {
-            navigationController.pushViewController(ListsCollectionViewController(), animated: true)
+            navigationController.pushViewController(ListsTableViewController(), animated: true)
         }
     }
     
@@ -104,10 +125,12 @@ class MainMenuViewController: UIViewController {
     }
 
     func setupLayout() {
+        addToShoppingListAnimationConstraint = addToShoppingListButton.al_centerX == view.al_centerX
+        
         view.addConstraints([
             addToShoppingListButton.al_width == 170,
             addToShoppingListButton.al_height == 170,
-            addToShoppingListButton.al_centerX == view.al_centerX,
+            addToShoppingListAnimationConstraint!,
             addToShoppingListButton.al_bottom == addLocationButton.al_top - 20,
             
             addLocationButton.al_width == 170,

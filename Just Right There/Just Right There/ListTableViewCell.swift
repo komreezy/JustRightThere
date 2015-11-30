@@ -1,14 +1,14 @@
 //
-//  ListsCollectionViewCell.swift
+//  ListTableViewCell.swift
 //  Just Right There
 //
-//  Created by Komran Ghahremani on 9/10/15.
-//  Copyright (c) 2015 Komran Ghahremani. All rights reserved.
+//  Created by Komran Ghahremani on 11/19/15.
+//  Copyright © 2015 Komran Ghahremani. All rights reserved.
 //
 
 import UIKit
 
-class ListsCollectionViewCell: UICollectionViewCell {
+class ListTableViewCell: UITableViewCell {
     var bottomEditView: UIView
     var deleteButton: UIButton
     
@@ -21,7 +21,7 @@ class ListsCollectionViewCell: UICollectionViewCell {
     var topContainerRightConstraint: NSLayoutConstraint?
     var deleteButtonRightConstraint: NSLayoutConstraint?
     
-    override init(frame: CGRect) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         topContainerView = UIView()
         topContainerView.translatesAutoresizingMaskIntoConstraints = false
         topContainerView.backgroundColor = WhiteColor
@@ -48,7 +48,7 @@ class ListsCollectionViewCell: UICollectionViewCell {
         borderView.translatesAutoresizingMaskIntoConstraints = false
         borderView.backgroundColor = UIColor(fromHexString: "#CCCCCC")
         
-        super.init(frame: frame)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         swipeRecognizer = UIPanGestureRecognizer(target: self, action: "swipeToDelete:")
         topContainerView.addGestureRecognizer(swipeRecognizer!)
@@ -63,7 +63,7 @@ class ListsCollectionViewCell: UICollectionViewCell {
         
         setupLayout()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

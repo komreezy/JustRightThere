@@ -7,45 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2988134FC0285E3377C27066D75747 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 930C9EA0F42E9190546F4F92AB26C256 /* CSStickyHeaderFlowLayoutAttributes.m */; };
+		2617E54E7B1A8A4F1F18B4E453B9268F /* CSStickyHeaderFlowLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 856E6C8A8D079FDBD2241CA632996A9F /* CSStickyHeaderFlowLayoutAttributes.h */; };
+		400AF37C2C34C858D7324BCC10B62410 /* CSStickyHeaderFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FC6EA591D30F7FD5FE52DD17190AB7A /* CSStickyHeaderFlowLayout.h */; };
 		5B4D6119AB1173F89295129508EBDB53 /* Pods-Just Right There-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FC605519C30D52D75219CDFE12156 /* Pods-Just Right There-dummy.m */; };
-		7225E7DD8B241F60049EE534BAE171BE /* CSStickyHeaderFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D4B8AAAC23DCAADCDFD012C83D8CA4 /* CSStickyHeaderFlowLayout-dummy.m */; };
-		9068A9E4E0C85EC68AB4607CAE43DC65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FFA703BA5221FDE955488C89505BB7 /* Foundation.framework */; };
-		ACECE6C9657B4EE0FF687BE50E16CED1 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A6AA22BCE7616E89B797EE3661FAB /* CSStickyHeaderFlowLayoutAttributes.m */; };
-		B92D6DF2EC679A9DB7E6AA0E55C809F0 /* CSStickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A82DFC7050779ACC27E0300280B5D068 /* CSStickyHeaderFlowLayout.m */; };
-		C3D8A0F1182D3E12C89845E2DE1F68AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FFA703BA5221FDE955488C89505BB7 /* Foundation.framework */; };
-		D909728C7F78971F8DAD685CAE083A84 /* CSStickyHeaderFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = ED85DD55D2BAD6BF125FF39B7514CBB6 /* CSStickyHeaderFlowLayout.h */; };
-		F1F948BA2A46A2B675FED8BA1E19FE91 /* CSStickyHeaderFlowLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C92B1C92C3F1BCF5659BEB971BD650 /* CSStickyHeaderFlowLayoutAttributes.h */; };
+		9068A9E4E0C85EC68AB4607CAE43DC65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0555DE0D8164E0C7DF12C88C5B4ADA /* Foundation.framework */; };
+		920B549D4F05F1C22459887511AA5DA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0555DE0D8164E0C7DF12C88C5B4ADA /* Foundation.framework */; };
+		9EF2732E2845B6BDA79C2768A19C240E /* CSStickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 02766CCCEB2CC9449F1797BD467ABA74 /* CSStickyHeaderFlowLayout.m */; };
+		F88F826BA9A9BD798A1464694D00C5BD /* CSStickyHeaderFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27DDBA5B5D391412D5AC17B756229B /* CSStickyHeaderFlowLayout-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D8DF17C7B4603E9E36151DE5B84FE27D /* PBXContainerItemProxy */ = {
+		E00297622EF1DF8DB6EB74B98CDC0774 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 74F4E62E978F9EBE5B5B862E73B9E3E4;
+			remoteGlobalIDString = 8198737CB7A7262198165B0EC67F45CB;
 			remoteInfo = CSStickyHeaderFlowLayout;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05C92B1C92C3F1BCF5659BEB971BD650 /* CSStickyHeaderFlowLayoutAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSStickyHeaderFlowLayoutAttributes.h; path = Classes/CSStickyHeaderFlowLayoutAttributes.h; sourceTree = "<group>"; };
-		42FFA703BA5221FDE955488C89505BB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4AE597B766946584B133FA622F574460 /* libCSStickyHeaderFlowLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCSStickyHeaderFlowLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		02766CCCEB2CC9449F1797BD467ABA74 /* CSStickyHeaderFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSStickyHeaderFlowLayout.m; path = Classes/CSStickyHeaderFlowLayout.m; sourceTree = "<group>"; };
+		3D0555DE0D8164E0C7DF12C88C5B4ADA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5338A30F9F715CC61316ADC1D702926E /* libCSStickyHeaderFlowLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCSStickyHeaderFlowLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9FC605519C30D52D75219CDFE12156 /* Pods-Just Right There-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Just Right There-dummy.m"; sourceTree = "<group>"; };
+		6FC6EA591D30F7FD5FE52DD17190AB7A /* CSStickyHeaderFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSStickyHeaderFlowLayout.h; path = Classes/CSStickyHeaderFlowLayout.h; sourceTree = "<group>"; };
+		7A27DDBA5B5D391412D5AC17B756229B /* CSStickyHeaderFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CSStickyHeaderFlowLayout-dummy.m"; sourceTree = "<group>"; };
 		7FBE0FFF97F8620519D87A5C1CE611DC /* Pods-Just Right There.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Just Right There.debug.xcconfig"; sourceTree = "<group>"; };
-		96D4B8AAAC23DCAADCDFD012C83D8CA4 /* CSStickyHeaderFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CSStickyHeaderFlowLayout-dummy.m"; sourceTree = "<group>"; };
+		856E6C8A8D079FDBD2241CA632996A9F /* CSStickyHeaderFlowLayoutAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSStickyHeaderFlowLayoutAttributes.h; path = Classes/CSStickyHeaderFlowLayoutAttributes.h; sourceTree = "<group>"; };
+		930C9EA0F42E9190546F4F92AB26C256 /* CSStickyHeaderFlowLayoutAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSStickyHeaderFlowLayoutAttributes.m; path = Classes/CSStickyHeaderFlowLayoutAttributes.m; sourceTree = "<group>"; };
 		9A6EF7E759DA9AF0F0685A92CBAA3099 /* Pods-Just Right There.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Just Right There.release.xcconfig"; sourceTree = "<group>"; };
-		9A7A6AA22BCE7616E89B797EE3661FAB /* CSStickyHeaderFlowLayoutAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSStickyHeaderFlowLayoutAttributes.m; path = Classes/CSStickyHeaderFlowLayoutAttributes.m; sourceTree = "<group>"; };
 		9C1CD0E0CF3B149B2B274B00B2DF1025 /* Pods-Just Right There-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Just Right There-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D542F71D266698CA5C356EF29CC74A0 /* CSStickyHeaderFlowLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CSStickyHeaderFlowLayout.xcconfig; sourceTree = "<group>"; };
-		A82DFC7050779ACC27E0300280B5D068 /* CSStickyHeaderFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSStickyHeaderFlowLayout.m; path = Classes/CSStickyHeaderFlowLayout.m; sourceTree = "<group>"; };
 		B936798A4EBA78512B4D43E3E415A7EE /* Pods-Just Right There-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Just Right There-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BC4B38E3E3F89363CC8DA91B6357F721 /* CSStickyHeaderFlowLayout-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CSStickyHeaderFlowLayout-Private.xcconfig"; sourceTree = "<group>"; };
 		C0C430F694FE35637010C3F8DBE7DA85 /* libPods-Just Right There.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Just Right There.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637D996B3FE984BC4ABEFFC5BDCFF52 /* CSStickyHeaderFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CSStickyHeaderFlowLayout-prefix.pch"; sourceTree = "<group>"; };
+		C6DD8B6B436C471229A1A08AC5289E8A /* CSStickyHeaderFlowLayout-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CSStickyHeaderFlowLayout-Private.xcconfig"; sourceTree = "<group>"; };
 		D577B5AE47A3A769DDEC9AA7ACF2A927 /* Pods-Just Right There-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Just Right There-resources.sh"; sourceTree = "<group>"; };
-		ED85DD55D2BAD6BF125FF39B7514CBB6 /* CSStickyHeaderFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSStickyHeaderFlowLayout.h; path = Classes/CSStickyHeaderFlowLayout.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +57,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC918B0B1C3C23CE84786797D727B91E /* Frameworks */ = {
+		82C3529ED21249C493EA7B37CA9117D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D8A0F1182D3E12C89845E2DE1F68AF /* Foundation.framework in Frameworks */,
+				920B549D4F05F1C22459887511AA5DA5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,10 +71,10 @@
 		2AC8305042E8788B44788B0935E2A917 /* CSStickyHeaderFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
-				ED85DD55D2BAD6BF125FF39B7514CBB6 /* CSStickyHeaderFlowLayout.h */,
-				A82DFC7050779ACC27E0300280B5D068 /* CSStickyHeaderFlowLayout.m */,
-				05C92B1C92C3F1BCF5659BEB971BD650 /* CSStickyHeaderFlowLayoutAttributes.h */,
-				9A7A6AA22BCE7616E89B797EE3661FAB /* CSStickyHeaderFlowLayoutAttributes.m */,
+				6FC6EA591D30F7FD5FE52DD17190AB7A /* CSStickyHeaderFlowLayout.h */,
+				02766CCCEB2CC9449F1797BD467ABA74 /* CSStickyHeaderFlowLayout.m */,
+				856E6C8A8D079FDBD2241CA632996A9F /* CSStickyHeaderFlowLayoutAttributes.h */,
+				930C9EA0F42E9190546F4F92AB26C256 /* CSStickyHeaderFlowLayoutAttributes.m */,
 				4766BA27C3DBCA83E1EB8FB2CDF76C24 /* Support Files */,
 			);
 			path = CSStickyHeaderFlowLayout;
@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				9D542F71D266698CA5C356EF29CC74A0 /* CSStickyHeaderFlowLayout.xcconfig */,
-				BC4B38E3E3F89363CC8DA91B6357F721 /* CSStickyHeaderFlowLayout-Private.xcconfig */,
-				96D4B8AAAC23DCAADCDFD012C83D8CA4 /* CSStickyHeaderFlowLayout-dummy.m */,
+				C6DD8B6B436C471229A1A08AC5289E8A /* CSStickyHeaderFlowLayout-Private.xcconfig */,
+				7A27DDBA5B5D391412D5AC17B756229B /* CSStickyHeaderFlowLayout-dummy.m */,
 				C637D996B3FE984BC4ABEFFC5BDCFF52 /* CSStickyHeaderFlowLayout-prefix.pch */,
 			);
 			name = "Support Files";
@@ -109,7 +109,7 @@
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				42FFA703BA5221FDE955488C89505BB7 /* Foundation.framework */,
+				3D0555DE0D8164E0C7DF12C88C5B4ADA /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4AE597B766946584B133FA622F574460 /* libCSStickyHeaderFlowLayout.a */,
+				5338A30F9F715CC61316ADC1D702926E /* libCSStickyHeaderFlowLayout.a */,
 				C0C430F694FE35637010C3F8DBE7DA85 /* libPods-Just Right There.a */,
 			);
 			name = Products;
@@ -161,25 +161,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4A57D79DCB0AB901A4AAE7ADDA2184BD /* Headers */ = {
+		962C092EA9844FBF2ED7D98BC994F687 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D909728C7F78971F8DAD685CAE083A84 /* CSStickyHeaderFlowLayout.h in Headers */,
-				F1F948BA2A46A2B675FED8BA1E19FE91 /* CSStickyHeaderFlowLayoutAttributes.h in Headers */,
+				400AF37C2C34C858D7324BCC10B62410 /* CSStickyHeaderFlowLayout.h in Headers */,
+				2617E54E7B1A8A4F1F18B4E453B9268F /* CSStickyHeaderFlowLayoutAttributes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		74F4E62E978F9EBE5B5B862E73B9E3E4 /* CSStickyHeaderFlowLayout */ = {
+		8198737CB7A7262198165B0EC67F45CB /* CSStickyHeaderFlowLayout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA16DE1D3D97D6637E147CB329897950 /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayout" */;
+			buildConfigurationList = 166DB8B9EC77AF7E954B23C945DFB9D7 /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayout" */;
 			buildPhases = (
-				D62CF0263A7C432E9B0489EF4E42A9B2 /* Sources */,
-				DC918B0B1C3C23CE84786797D727B91E /* Frameworks */,
-				4A57D79DCB0AB901A4AAE7ADDA2184BD /* Headers */,
+				DF8ED2E1ED805772E73C6347991234AC /* Sources */,
+				82C3529ED21249C493EA7B37CA9117D6 /* Frameworks */,
+				962C092EA9844FBF2ED7D98BC994F687 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -187,7 +187,7 @@
 			);
 			name = CSStickyHeaderFlowLayout;
 			productName = CSStickyHeaderFlowLayout;
-			productReference = 4AE597B766946584B133FA622F574460 /* libCSStickyHeaderFlowLayout.a */;
+			productReference = 5338A30F9F715CC61316ADC1D702926E /* libCSStickyHeaderFlowLayout.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F006A71351053AC655196D92F3EA0FA4 /* Pods-Just Right There */ = {
@@ -200,7 +200,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				03FA6DF9D4AEFC3519D605749A4B39EF /* PBXTargetDependency */,
+				0EA80908A90C1C70C72BA8F50039FE24 /* PBXTargetDependency */,
 			);
 			name = "Pods-Just Right There";
 			productName = "Pods-Just Right There";
@@ -228,7 +228,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				74F4E62E978F9EBE5B5B862E73B9E3E4 /* CSStickyHeaderFlowLayout */,
+				8198737CB7A7262198165B0EC67F45CB /* CSStickyHeaderFlowLayout */,
 				F006A71351053AC655196D92F3EA0FA4 /* Pods-Just Right There */,
 			);
 		};
@@ -243,24 +243,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D62CF0263A7C432E9B0489EF4E42A9B2 /* Sources */ = {
+		DF8ED2E1ED805772E73C6347991234AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7225E7DD8B241F60049EE534BAE171BE /* CSStickyHeaderFlowLayout-dummy.m in Sources */,
-				B92D6DF2EC679A9DB7E6AA0E55C809F0 /* CSStickyHeaderFlowLayout.m in Sources */,
-				ACECE6C9657B4EE0FF687BE50E16CED1 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
+				F88F826BA9A9BD798A1464694D00C5BD /* CSStickyHeaderFlowLayout-dummy.m in Sources */,
+				9EF2732E2845B6BDA79C2768A19C240E /* CSStickyHeaderFlowLayout.m in Sources */,
+				1A2988134FC0285E3377C27066D75747 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		03FA6DF9D4AEFC3519D605749A4B39EF /* PBXTargetDependency */ = {
+		0EA80908A90C1C70C72BA8F50039FE24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CSStickyHeaderFlowLayout;
-			target = 74F4E62E978F9EBE5B5B862E73B9E3E4 /* CSStickyHeaderFlowLayout */;
-			targetProxy = D8DF17C7B4603E9E36151DE5B84FE27D /* PBXContainerItemProxy */;
+			target = 8198737CB7A7262198165B0EC67F45CB /* CSStickyHeaderFlowLayout */;
+			targetProxy = E00297622EF1DF8DB6EB74B98CDC0774 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -280,6 +280,38 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		436BD4A7F8549AC11B2BB758FFAAFCB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6DD8B6B436C471229A1A08AC5289E8A /* CSStickyHeaderFlowLayout-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		43E3432B7B5430E914BE25D0446DA16C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6DD8B6B436C471229A1A08AC5289E8A /* CSStickyHeaderFlowLayout-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		511103F7F15A7E8F83B268EA03462CAB /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -314,22 +346,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		7EFA2C0ED10FD8A3DD89FEF0E3661366 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC4B38E3E3F89363CC8DA91B6357F721 /* CSStickyHeaderFlowLayout-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
 		};
 		A5F44F225091C6A32FFD3CEC929BD7C9 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -386,25 +402,18 @@
 			};
 			name = Debug;
 		};
-		CFAE604FD377729FC9FC7B156CA934CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC4B38E3E3F89363CC8DA91B6357F721 /* CSStickyHeaderFlowLayout-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		166DB8B9EC77AF7E954B23C945DFB9D7 /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				436BD4A7F8549AC11B2BB758FFAAFCB0 /* Debug */,
+				43E3432B7B5430E914BE25D0446DA16C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -419,15 +428,6 @@
 			buildConfigurations = (
 				30D65BD2F2C8492EB95E4B1D46E7FFAF /* Debug */,
 				A5F44F225091C6A32FFD3CEC929BD7C9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BA16DE1D3D97D6637E147CB329897950 /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayout" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7EFA2C0ED10FD8A3DD89FEF0E3661366 /* Debug */,
-				CFAE604FD377729FC9FC7B156CA934CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

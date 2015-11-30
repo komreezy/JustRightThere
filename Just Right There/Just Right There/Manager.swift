@@ -43,10 +43,11 @@ class Manager: NSObject, ListNotificationSetDelegate {
         let userInfo: NSDictionary = NSDictionary(object: "\(name)\(radius)", forKey: "name")
         let uidToDelete = "\(name)"
         let notification = UILocalNotification()
+        let radiusDouble = Double(radius)
         notification.alertBody = "Don't forget about your list for \(name)!"
         notification.regionTriggersOnce = false
         notification.userInfo = userInfo as [NSObject : AnyObject]
-        notification.region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 37.33182, longitude: -122.03118), radius: 100.0, identifier: "\(name)\(radius)")
+        notification.region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 37.33182, longitude: -122.03118), radius: (radiusDouble * 1609.34), identifier: "\(name)\(radius)")
         
         for var i = 0; i < notifications.count; i++ {
             let item = notifications[i]

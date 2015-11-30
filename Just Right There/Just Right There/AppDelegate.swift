@@ -10,6 +10,8 @@ import UIKit
 
 var navigationController: UINavigationController?
 
+// var rootRef: Firebase = Firebase(url: "https://dreaming.firebaseio.com/")
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -30,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.rootViewController = navigationController
             window.makeKeyAndVisible()
         }
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         return true
     }

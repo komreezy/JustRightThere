@@ -31,6 +31,7 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
         
         searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "Search for a New Location"
         
         var currentLoc = CLLocation() //make a variable to hold the users current location
         

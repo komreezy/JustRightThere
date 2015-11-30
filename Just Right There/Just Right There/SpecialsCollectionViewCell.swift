@@ -1,21 +1,24 @@
 //
-//  ListDetailCollectionViewCell.swift
+//  SpecialsCollectionViewCell.swift
 //  Just Right There
 //
-//  Created by Komran Ghahremani on 10/15/15.
+//  Created by Komran Ghahremani on 11/19/15.
 //  Copyright © 2015 Komran Ghahremani. All rights reserved.
 //
 
 import UIKit
 
-class ListDetailCollectionViewCell: UICollectionViewCell {
-    var itemNameLabel: UILabel
+class SpecialsCollectionViewCell: UICollectionViewCell {
+    var specialNameLabel: UILabel
     var borderView: UIView
+    var small: Bool
     
-    override init(frame: CGRect) {
-        itemNameLabel = UILabel()
-        itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        itemNameLabel.textColor = FlatBlackColor
+    init(frame: CGRect, small: Bool) {
+        self.small = small
+        
+        specialNameLabel = UILabel()
+        specialNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        specialNameLabel.textColor = FlatBlackColor
         
         borderView = UIView()
         borderView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +26,7 @@ class ListDetailCollectionViewCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        addSubview(itemNameLabel)
+        addSubview(specialNameLabel)
         addSubview(borderView)
         
         setupLayout()
@@ -35,8 +38,8 @@ class ListDetailCollectionViewCell: UICollectionViewCell {
     
     func setupLayout() {
         addConstraints([
-            itemNameLabel.al_centerY == al_centerY,
-            itemNameLabel.al_left == al_left + 25,
+            specialNameLabel.al_centerY == al_centerY,
+            specialNameLabel.al_left == al_left + 25,
             
             borderView.al_left == al_left,
             borderView.al_width == al_width,
