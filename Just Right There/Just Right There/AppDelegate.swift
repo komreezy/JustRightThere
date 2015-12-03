@@ -8,9 +8,9 @@
 
 import UIKit
 
-var navigationController: UINavigationController?
+var myNavigationController: UINavigationController?
 
-// var rootRef: Firebase = Firebase(url: "https://dreaming.firebaseio.com/")
+var rootRef: Firebase = Firebase(url: "https://just-right-there.firebaseio.com")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let window = self.window {
             mainController = MainMenuViewController()
-            navigationController = UINavigationController(rootViewController: mainController)
-            navigationController?.navigationBar.barTintColor = FlatGreenColor
-            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-            window.rootViewController = navigationController
+            myNavigationController = UINavigationController(rootViewController: mainController)
+            myNavigationController?.navigationBar.barTintColor = FlatGreenColor
+            myNavigationController?.navigationBar.tintColor = UIColor.whiteColor()
+            window.rootViewController = myNavigationController
             window.makeKeyAndVisible()
         }
         

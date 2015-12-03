@@ -21,8 +21,14 @@ List - a title that goes with a text field and a location
 struct list {
     var title: String = "" //name of the place is the same as the name of the list because there is one list per place
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D() //coordinates of the place have to come from the map
-    var items: [String] = []
+    var items: [Item] = []
     var range: CGFloat
+    var id: String
+}
+
+struct Item {
+    var name: String
+    var id: String
 }
 
 var manager: Manager = Manager()
@@ -30,13 +36,57 @@ var manager: Manager = Manager()
 class Manager: NSObject, ListNotificationSetDelegate {
     
     //holds all of the location lists
-    var lists: [list] = [list(title:"Nike Store", location: CLLocationCoordinate2D(latitude: 80.0, longitude: 80.0), items: ["Shoes", "Shirt", "Golf Balls", "Jordans", "Ankle Socks", "Hat", "Headband", "Tennis Ball"], range: 0.0)]
+    var lists: [list] = []
     var notifications: [UILocalNotification] = []
     var currentIndex = 0
     
+    var listsRef = rootRef.childByAppendingPath("/users")
+    
     //make blank list with title and location passed in
-    func addList(titleParam: String, coordinate: CLLocationCoordinate2D){
-        lists.append(list(title: titleParam, location: coordinate, items: [], range: 0.0))
+    func addList(titleParam: String, coordinate: CLLocationCoordinate2D, id: String) {
+        lists.append(list(title: titleParam, location: coordinate, items: [], range: 0.0, id: id))
+    }
+    
+    func requestListData() {
+        
+        if let id = NSUserDefaults.standardUserDefaults().stringForKey("id") {
+            print(id)
+            listsRef = rootRef.childByAppendingPath("/users/\(id)/lists")
+        }
+        
+        listsRef.observeEventType(.Value, withBlock: { snapshot in
+            if let listsData = snapshot.value as? [String:AnyObject] {
+                print(listsData)
+                self.lists.removeAll()
+                for (id, data) in listsData {
+                    if let title = data["title"]! as? String,
+                    let itemsData = data["items"]! as? [String:[String:String]] {
+                        var items: [Item] = []
+                        var listObject: list?
+                        for(itemId, itemData) in itemsData {
+                            if let name = itemData["name"]! as? String {
+                                let item: Item = Item(name: name, id: itemId)
+                
+                                items.append(item)
+                                listObject = list(title: title, location: CLLocationCoordinate2D(), items: items, range: 0.0, id: id)
+                            }
+                        }
+                        self.lists.append(listObject!)
+                    } else if let title = data["title"]! as? String {
+                        let items: [Item] = []
+                        var listObject: list?
+                        listObject = list(title: title, location: CLLocationCoordinate2D(), items: items, range: 0.0, id: id)
+                        self.lists.append(listObject!)
+                    }
+                }
+                
+                print(self.lists.count)
+                print(self.lists)
+                
+            } else {
+                print("Feed Data not received")
+            }
+        })
     }
     
     func createLocationBasedNotification(name: String, radius: CGFloat) {

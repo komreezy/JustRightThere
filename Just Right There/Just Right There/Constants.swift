@@ -15,3 +15,4 @@ let FlatBlackColor = UIColor(red: 69.0/255.0, green: 74.0/255.0, blue: 79.0/255.
 
 let WhiteColor = UIColor.whiteColor()
 let ClearColor = UIColor.clearColor()
+let GreyColor = UIColor(fromHexString: "#CCCCCC")

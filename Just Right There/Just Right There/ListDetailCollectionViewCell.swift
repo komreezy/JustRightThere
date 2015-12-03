@@ -9,17 +9,25 @@
 import UIKit
 
 class ListDetailCollectionViewCell: UICollectionViewCell {
-    var itemNameLabel: UILabel
+    var itemNameLabel: UITextField
     var borderView: UIView
+    var deleteButton: UIButton
     
     override init(frame: CGRect) {
-        itemNameLabel = UILabel()
+        itemNameLabel = UITextField()
         itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
         itemNameLabel.textColor = FlatBlackColor
+        itemNameLabel.returnKeyType = .Done
         
         borderView = UIView()
         borderView.translatesAutoresizingMaskIntoConstraints = false
         borderView.backgroundColor = UIColor(fromHexString: "#CCCCCC")
+        
+        deleteButton = UIButton()
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.backgroundColor = FlatRedColor
+        deleteButton.setTitle("Delete", forState: .Normal)
+        deleteButton.setTitleColor(WhiteColor, forState: .Normal)
         
         super.init(frame: frame)
         
@@ -35,8 +43,10 @@ class ListDetailCollectionViewCell: UICollectionViewCell {
     
     func setupLayout() {
         addConstraints([
-            itemNameLabel.al_centerY == al_centerY,
             itemNameLabel.al_left == al_left + 25,
+            itemNameLabel.al_right == al_right - 25,
+            itemNameLabel.al_top == al_top,
+            itemNameLabel.al_bottom == al_bottom,
             
             borderView.al_left == al_left,
             borderView.al_width == al_width,

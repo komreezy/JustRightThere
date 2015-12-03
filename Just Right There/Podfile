@@ -4,6 +4,7 @@
 target 'Just Right There' do
     pod 'CSStickyHeaderFlowLayout'
     pod 'Firebase', '>= 2.4.2'
+    pod 'DZNEmptyDataSet'
 end
 
 target 'Just Right ThereTests' do

@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Firebase.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Just Right There.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8198737CB7A7262198165B0EC67F45CB</key>
+		<key>448700529DADDD04BC09E24115C51834</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F006A71351053AC655196D92F3EA0FA4</key>
+		<key>5A99F128A83EEBB84FD3A687E41C73D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>943991C7DE1FB62F1DBA9C6C34858F21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA7FC618AC4CC1D4856B5B7E0196CC54</key>
 		<dict>
 			<key>primary</key>
 			<true/>

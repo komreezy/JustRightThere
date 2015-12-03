@@ -17,9 +17,13 @@ class MainMenuViewController: UIViewController {
     var addLocationLabel: UILabel
     var specialsLabel: UILabel
     
+    var userDefaults: NSUserDefaults
+    
     var addToShoppingListAnimationConstraint: NSLayoutConstraint?
     
     init() {
+        userDefaults = NSUserDefaults.standardUserDefaults()
+        
         addToShoppingListButton = SpringButton()
         addToShoppingListButton.translatesAutoresizingMaskIntoConstraints = false
         addToShoppingListButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -66,6 +70,7 @@ class MainMenuViewController: UIViewController {
         
         addToShoppingListButton.addTarget(self, action: "addToShoppingListTapped",forControlEvents: .TouchUpInside)
         addLocationButton.addTarget(self, action: "addLocationTapped", forControlEvents: .TouchUpInside)
+        specialsButton.addTarget(self, action: "specialsTapped", forControlEvents: .TouchUpInside)
         
         view.backgroundColor = UIColor.whiteColor()
         
@@ -84,9 +89,21 @@ class MainMenuViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        if userDefaults.boolForKey("JRTuser") == false {
+            let vc = SignupViewController()
+            presentViewController(vc, animated: true, completion: nil)
+        }
+        
+        title = "Main Menu"
+        myNavigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: WhiteColor]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        manager.requestListData()
         
         addToShoppingListButton.duration = 1.2
         addToShoppingListButton.animation = "pop"
@@ -121,6 +138,12 @@ class MainMenuViewController: UIViewController {
     func addLocationTapped() {
         if let navigationController = navigationController {
             navigationController.pushViewController(MapSearchViewController(), animated: true)
+        }
+    }
+    
+    func specialsTapped() {
+        if let navigationController = navigationController {
+            navigationController.pushViewController(SpecialsAndPromotionsCollectionViewController(), animated: true)
         }
     }
 

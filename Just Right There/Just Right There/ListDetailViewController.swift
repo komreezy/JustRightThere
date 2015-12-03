@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ListDetailViewController: UICollectionViewController {
+class ListDetailViewController: UICollectionViewController,
+DZNEmptyDataSetDelegate,
+DZNEmptyDataSetSource, UITextFieldDelegate {
 
     // variables passed in from the last view controller
-    var currentItems: [String]
+    var currentItems: [Item]
     var currentTitle: String
     var currentIndex: Int
+    var currentItemIndex: Int = 0
     var addButton: UIBarButtonItem?
     
     var delegate: ListNotificationSetDelegate?
@@ -44,8 +47,13 @@ class ListDetailViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myNavigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: WhiteColor]
+        title = "Detail"
+        
         if let collectionView = collectionView {
             collectionView.backgroundColor = UIColor.whiteColor()
+            collectionView.emptyDataSetSource = self
+            collectionView.emptyDataSetDelegate = self
             collectionView.showsVerticalScrollIndicator = false
             collectionView.registerClass(ListDetailHeaderView.self, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: "profile-header")
             collectionView.registerClass(ListDetailCollectionViewCell.self, forCellWithReuseIdentifier: "listCell")
@@ -61,7 +69,7 @@ class ListDetailViewController: UICollectionViewController {
         currentItems = manager.lists[currentIndex].items
         
         if let collectionView = collectionView {
-            collectionView.reloadSections(NSIndexSet(index: 0))
+            collectionView.reloadData()
         }
     }
     
@@ -86,7 +94,9 @@ class ListDetailViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListDetailCollectionViewCell
         
-        cell.itemNameLabel.text = currentItems[indexPath.row]
+        cell.itemNameLabel.text = currentItems[indexPath.row].name
+        cell.itemNameLabel.delegate = self
+        cell.itemNameLabel.tag = indexPath.row
         
         return cell
     }
@@ -110,6 +120,53 @@ class ListDetailViewController: UICollectionViewController {
             return UICollectionReusableView()
         }
     }
+    
+    // MARK: CellTextField
+    func textFieldDidEndEditing(textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let id = NSUserDefaults.standardUserDefaults().stringForKey("id") {
+            currentItemIndex = textField.tag
+            let listId = manager.lists[manager.currentIndex].id
+            let itemRef = rootRef.childByAppendingPath("users/\(id)/lists/\(listId)/items/\(manager.lists[manager.currentIndex].items[currentItemIndex].id)/name")
+        
+            if let newItemText = textField.text {
+                manager.lists[manager.currentIndex].items[currentItemIndex].name = newItemText
+                itemRef.setValue(newItemText)
+            }
+        }
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: DZNEmptyDataSet
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "")
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let title = "No Items yet"
+        let myMutableString = NSMutableAttributedString(
+            string: title,
+            attributes: [NSFontAttributeName:UIFont(
+                name: "HelveticaNeue",
+                size: 24.0)!, NSForegroundColorAttributeName: FlatBlackColor])
+        return myMutableString
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let title = "Get your list started and add your first item by tapping on the plus button in the top right hand corner of your screen."
+        let myMutableString = NSMutableAttributedString(
+            string: title,
+            attributes: [NSFontAttributeName:UIFont(
+                name: "HelveticaNeue",
+                size: 18.0)!, NSForegroundColorAttributeName: FlatBlackColor])
+        return myMutableString
+    }
+    
     
     //if the user forgets to put the done button and they click back then it's ok it still saves
     override func viewDidDisappear(animated: Bool) {

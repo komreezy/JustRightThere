@@ -9,36 +9,47 @@
 import UIKit
 
 class AddItemViewController: UIViewController {
-    var itemNameLabel: UILabel
     var itemNameTextField: UITextField
     var doneButton: UIButton
+    var underlineView: UIView
+    var cancelButton: UIButton
     
     init() {
-        itemNameLabel = UILabel()
-        itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        itemNameLabel.text = "Name"
-        
         itemNameTextField = UITextField()
         itemNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        itemNameTextField.backgroundColor = UIColor.lightGrayColor()
+        itemNameTextField.backgroundColor = ClearColor
+        itemNameTextField.placeholder = "Name of Item"
+        itemNameTextField.textColor = WhiteColor
+        itemNameTextField.font = UIFont.systemFontOfSize(24.0)
+        
+        underlineView = UIView()
+        underlineView.translatesAutoresizingMaskIntoConstraints = false
+        underlineView.backgroundColor = WhiteColor
+        underlineView.layer.cornerRadius = 3
+        
+        cancelButton = UIButton()
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.setImage(UIImage(named: "close"), forState: .Normal)
         
         doneButton = UIButton()
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitle("Done", forState: .Normal)
-        doneButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        doneButton.setTitleColor(WhiteColor, forState: .Normal)
         doneButton.layer.cornerRadius = 5
-        doneButton.layer.borderColor = UIColor.blackColor().CGColor
-        doneButton.layer.borderWidth = 3
+        doneButton.layer.borderColor = WhiteColor.CGColor
+        doneButton.layer.borderWidth = 2
         
         super.init(nibName: nil, bundle: nil)
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = FlatGreenColor
         
         doneButton.addTarget(self, action: "doneTapped", forControlEvents: .TouchUpInside)
+        cancelButton.addTarget(self, action: "closeTapped", forControlEvents: .TouchUpInside)
         
-        view.addSubview(itemNameLabel)
         view.addSubview(itemNameTextField)
+        view.addSubview(underlineView)
         view.addSubview(doneButton)
+        view.addSubview(cancelButton)
         
         setupLayout()
     }
@@ -60,27 +71,49 @@ class AddItemViewController: UIViewController {
     
     func doneTapped() {
         if let name = itemNameTextField.text {
-            manager.lists[manager.currentIndex].items.append(name)
+            if let id = NSUserDefaults.standardUserDefaults().stringForKey("id") {
+                let listId = manager.lists[manager.currentIndex].id
+                let dreamDictionary = ["name":"\(name)"]
+                let userRef = rootRef.childByAppendingPath("users/\(id)/lists/\(listId)/items")
+                let newPostRef: Firebase = userRef.childByAutoId()
+                
+                var newItem = Item(name: name, id: "")
+                newItem.id = newPostRef.key
+                manager.lists[manager.currentIndex].items.append(newItem)
+                
+                newPostRef.setValue(dreamDictionary)
+            }
+            
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             print("No Text")
         }
     }
     
+    func closeTapped() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func setupLayout() {
         view.addConstraints([
-            itemNameLabel.al_centerX == view.al_centerX,
-            itemNameLabel.al_height == 30,
-            itemNameLabel.al_top == view.al_top + 30,
-            
             itemNameTextField.al_centerX == view.al_centerX,
-            itemNameTextField.al_width == UIScreen.mainScreen().bounds.width - 60,
-            itemNameTextField.al_top == itemNameLabel.al_bottom + 20,
+            itemNameTextField.al_width == UIScreen.mainScreen().bounds.width - 100,
+            itemNameTextField.al_top == view.al_top + 115,
+            
+            underlineView.al_left == itemNameTextField.al_left,
+            underlineView.al_right == itemNameTextField.al_right,
+            underlineView.al_top == itemNameTextField.al_bottom + 10,
+            underlineView.al_height == 2,
+            
+            cancelButton.al_height == 50,
+            cancelButton.al_width == cancelButton.al_height,
+            cancelButton.al_top == view.al_top + 20,
+            cancelButton.al_left == view.al_left + 5,
             
             doneButton.al_centerX == view.al_centerX,
-            doneButton.al_top == itemNameTextField.al_bottom + 20,
-            doneButton.al_width == 100,
-            doneButton.al_height == 40
+            doneButton.al_top == underlineView.al_bottom + 30,
+            doneButton.al_width == 120,
+            doneButton.al_height == 35
         ])
     }
 }

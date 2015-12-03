@@ -9,16 +9,49 @@
 import UIKit
 
 class SpecialsCollectionViewCell: UICollectionViewCell {
-    var specialNameLabel: UILabel
+    var leftSpecialNameLabel: UILabel
+    var rightSpecialNameLabel: UILabel
     var borderView: UIView
-    var small: Bool
+    var leftContainerView: UIView
+    var rightContainerView: UIView
+    var middleBorderView: UIView
+    var leftContainerRightConstraint: NSLayoutConstraint?
+    var small: Bool = false {
+        didSet(value) {
+            if value == false {
+                leftContainerRightConstraint?.constant = frame.width / 2
+                layoutIfNeeded()
+            } else {
+                leftContainerRightConstraint?.constant = 0
+                layoutIfNeeded()
+            }
+        }
+    }
     
-    init(frame: CGRect, small: Bool) {
-        self.small = small
+    override init(frame: CGRect) {
+        leftContainerView = UIView()
+        leftContainerView.translatesAutoresizingMaskIntoConstraints = false
+        leftContainerView.backgroundColor = WhiteColor
         
-        specialNameLabel = UILabel()
-        specialNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        specialNameLabel.textColor = FlatBlackColor
+        rightContainerView = UIView()
+        rightContainerView.translatesAutoresizingMaskIntoConstraints = false
+        rightContainerView.backgroundColor = WhiteColor
+        
+        middleBorderView = UIView()
+        middleBorderView.translatesAutoresizingMaskIntoConstraints = false
+        middleBorderView.backgroundColor = GreyColor
+        
+        leftSpecialNameLabel = UILabel()
+        leftSpecialNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        leftSpecialNameLabel.textColor = FlatBlackColor
+        leftSpecialNameLabel.text = "Left"
+        leftSpecialNameLabel.textAlignment = .Center
+        
+        rightSpecialNameLabel = UILabel()
+        rightSpecialNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        rightSpecialNameLabel.textColor = FlatBlackColor
+        rightSpecialNameLabel.text = "Right"
+        rightSpecialNameLabel.textAlignment = .Center
         
         borderView = UIView()
         borderView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +59,11 @@ class SpecialsCollectionViewCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        addSubview(specialNameLabel)
+        leftContainerView.addSubview(leftSpecialNameLabel)
+        leftContainerView.addSubview(middleBorderView)
+        rightContainerView.addSubview(rightSpecialNameLabel)
+        addSubview(rightContainerView)
+        addSubview(leftContainerView)
         addSubview(borderView)
         
         setupLayout()
@@ -37,9 +74,33 @@ class SpecialsCollectionViewCell: UICollectionViewCell {
     }
     
     func setupLayout() {
+        leftContainerRightConstraint = leftContainerView.al_right == al_centerX
+        
         addConstraints([
-            specialNameLabel.al_centerY == al_centerY,
-            specialNameLabel.al_left == al_left + 25,
+            leftContainerView.al_left == al_left,
+            leftContainerView.al_bottom == al_bottom,
+            leftContainerView.al_top == al_top,
+            leftContainerRightConstraint!,
+
+            rightContainerView.al_left == al_centerX,
+            rightContainerView.al_bottom == al_bottom,
+            rightContainerView.al_top == al_top,
+            rightContainerView.al_right == al_right,
+            
+            leftSpecialNameLabel.al_right == leftContainerView.al_right,
+            leftSpecialNameLabel.al_left == leftContainerView.al_left,
+            leftSpecialNameLabel.al_top == leftContainerView.al_left,
+            leftSpecialNameLabel.al_bottom == leftContainerView.al_bottom,
+            
+            rightSpecialNameLabel.al_right == rightContainerView.al_right,
+            rightSpecialNameLabel.al_left == rightContainerView.al_left,
+            rightSpecialNameLabel.al_top == rightContainerView.al_top,
+            rightSpecialNameLabel.al_bottom == rightContainerView.al_bottom,
+            
+            middleBorderView.al_centerX == leftContainerView.al_right,
+            middleBorderView.al_top == leftContainerView.al_top,
+            middleBorderView.al_bottom == leftContainerView.al_bottom,
+            middleBorderView.al_width == 0.5,
             
             borderView.al_left == al_left,
             borderView.al_width == al_width,

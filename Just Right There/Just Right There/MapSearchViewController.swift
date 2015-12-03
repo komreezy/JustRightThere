@@ -23,7 +23,11 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
     
     var updatedLocation: Bool = false
     
+    var userDefaults: NSUserDefaults
+    
     init() {
+        userDefaults = NSUserDefaults.standardUserDefaults()
+        
         mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.showsUserLocation = true
@@ -81,6 +85,9 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myNavigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: WhiteColor]
+        title = "Search"
+        
         var currentLoc = CLLocation() //make a variable to hold the users current location
         
         locManager.delegate = self
@@ -92,15 +99,12 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
         let longDelta:CLLocationDegrees = 0.04
         
         if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
-                
-                if (locManager.location != nil) {
-                    currentLoc = locManager.location! //if we are authorized then set the current location to our variable
-                } else {
-                    print("Can't find user location")
-                }
-                
-                
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) {
+            if (locManager.location != nil) {
+                currentLoc = locManager.location! //if we are authorized then set the current location to our variable
+            } else {
+                print("Can't find user location")
+            }
         }
         
         
@@ -172,7 +176,17 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let title = view.annotation?.title,
             let coordinate = view.annotation?.coordinate {
-                manager.addList(title!, coordinate: coordinate)
+                if let userId = NSUserDefaults.standardUserDefaults().stringForKey("id") {
+                    let dreamDictionary = ["title":"\(title!)"]
+                    let userRef = rootRef.childByAppendingPath("users/\(userId)/lists")
+                    let newPostRef: Firebase = userRef.childByAutoId()
+                    
+                    newPostRef.setValue(dreamDictionary)
+                    
+                    let listId = newPostRef.key
+                    
+                    manager.addList(title!, coordinate: coordinate, id: listId)
+                }
         }
         
         let alert: UIAlertView = UIAlertView(title: "Success!", message: "Your location has been added to your Lists. Go to 'Add to a Shopping List' to create your list for this location.", delegate: self, cancelButtonTitle: "Okay")
@@ -215,10 +229,11 @@ class MapSearchViewController: UIViewController, MKMapViewDelegate, UISearchBarD
                 
                 for item in response!.mapItems {
                     if let name = item.name,
-                       let phone = item.phoneNumber {
+                       let phone = item.phoneNumber,
+                        let address = item.placemark.thoroughfare {
                         print("Name = \(name)")
                         print("Phone = \(phone)")
-                        let subtitle = "Lists: 0"
+                        let subtitle = "\(address)"
                         let itemLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude)
                         let ann: CustomAnnotation = CustomAnnotation(coordinate: itemLocation, title: name, subtitle: subtitle)
                         self.mapView.addAnnotation(ann)

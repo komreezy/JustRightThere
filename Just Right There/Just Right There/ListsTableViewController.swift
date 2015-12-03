@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ListsTableViewController: UITableViewController {
+let listCellReuseIdentifier = "listCell"
+
+class ListsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     var selectedIndex = 0
     
     init() {
@@ -22,18 +24,50 @@ class ListsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        myNavigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: WhiteColor]
         title = "My Lists"
         
         if let tableView = tableView {
             tableView.backgroundColor = UIColor.whiteColor()
             tableView.showsVerticalScrollIndicator = false
+            tableView.emptyDataSetSource = self
+            tableView.emptyDataSetDelegate = self
             tableView.registerClass(ListTableViewCell.self, forCellReuseIdentifier: listCellReuseIdentifier)
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: DZNEmptyDataSet
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "")
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let title = "No Lists yet"
+        let myMutableString = NSMutableAttributedString(
+            string: title,
+            attributes: [NSFontAttributeName:UIFont(
+                name: "HelveticaNeue",
+                size: 24.0)!, NSForegroundColorAttributeName: FlatBlackColor])
+        return myMutableString
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let title = "Add a List Location by tapping on the blue 'Add a New List Location' button in the Main Menu and searching for a location you want to make a list for."
+        let myMutableString = NSMutableAttributedString(
+            string: title,
+            attributes: [NSFontAttributeName:UIFont(
+                name: "HelveticaNeue",
+                size: 18.0)!, NSForegroundColorAttributeName: FlatBlackColor])
+        return myMutableString
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
